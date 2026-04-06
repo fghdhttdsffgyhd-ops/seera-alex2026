@@ -1,43 +1,25 @@
-name: Deploy to GitHub Pages
+steps:
+      # Checkout v4.0.0
+      - name: Checkout
+        uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608
 
-on:
-  push:
-    branches:
-      - main
-
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      # تم استبدال v4 بالكود الطويل الخاص بها
-      - uses: actions/checkout@692973e3d937129bcbf406528e2856e368273633 
-      
-      # تم استبدال v4 بالكود الطويل الخاص بها
-      - uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 
+      # Setup Node v4.0.0
+      - name: Setup Node
+        uses: actions/setup-node@8f152de45cc393bb48ce5d89d36b731f54556e65
         with:
           node-version: '18'
           cache: 'npm'
-          
+
       - run: npm ci
       - run: npm run build
-      
-      # تم استبدال v3 بالكود الطويل الخاص بها
-      - uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa 
+
+      # Upload Pages Artifact v3.0.0
+      - name: Upload Pages Artifact
+        uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa
         with:
           path: './dist'
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      # تم استبدال v4 بالكود الطويل الخاص بها
-      - uses: actions/deploy-pages@d6db90164ad5b118d2d652a80c7514659966df30 
+      # Deploy Pages v4.0.0
+      - name: Deploy
+        uses: actions/deploy-pages@d6db90164ad5b118d2d652a80c7514659966df30
         id: deployment
