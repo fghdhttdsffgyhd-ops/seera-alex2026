@@ -5,7 +5,8 @@ import { inspectAttr } from 'kimi-plugin-inspect-react'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/seera-app/',
+  // تم تعديل المسار الأساسي ليتوافق مع اسم المستودع على GitHub لضمان تحميل الملفات بشكل صحيح
+  base: '/seera-alex2026/',
   plugins: [inspectAttr(), react()],
   resolve: {
     alias: {
