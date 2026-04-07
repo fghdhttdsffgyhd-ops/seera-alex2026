@@ -5,8 +5,8 @@ import { inspectAttr } from 'kimi-plugin-inspect-react'
 
 // https://vite.dev/config/
 export default defineConfig({
-  // تم تعديل المسار الأساسي ليتوافق مع اسم المستودع على GitHub لضمان تحميل الملفات بشكل صحيح
-  base: '/seera-alex2026/',
+  // استخدام مسار أساسي فارغ أو نسبي لضمان عمل الروابط والملفات بشكل صحيح في أي مسار استضافة (مثل GitHub Pages)
+  base: './',
   plugins: [inspectAttr(), react()],
   resolve: {
     alias: {
