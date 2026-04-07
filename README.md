@@ -1,73 +1,67 @@
-# React + TypeScript + Vite
+# سيرا للحلول التقنية - Seera Tech Solutions 🚀
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+موقع تعريفي احترافي لشركة **سيرا للحلول التقنية**، يقدم عرضاً شاملاً للخدمات التقنية المتطورة مثل صيانة الأجهزة، الشبكات، وكاميرات المراقبة.
 
-Currently, two official plugins are available:
+A professional landing page for **Seera Tech Solutions**, showcasing comprehensive technical services including device maintenance, networking, and surveillance systems.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## ✨ المميزات | Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **تصميم عصري وجذاب**: واجهة مستخدم متطورة تعتمد على نظام الألوان الداكن مع لمسات برتقالية تقنية.
+- **تفاعلية عالية**: خلفية متحركة بنظام الجسيمات (Particles) باستخدام HTML5 Canvas.
+- **دعم كامل للغة العربية (RTL)**: تجربة مستخدم مثالية للمتحدثين بالعربية مع خط "Cairo" الاحترافي.
+- **متجاوب تماماً (Responsive)**: يعمل بكفاءة على جميع أحجام الشاشات (موبايل، تابلت، ديسكتوب).
+- **أداء سريع**: مبني باستخدام Vite و React لضمان سرعة التحميل والاستجابة.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🛠️ التقنيات المستخدمة | Tech Stack
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- **React 19**: لبناء واجهة المستخدم.
+- **TypeScript**: لضمان جودة الكود واستقراره.
+- **Tailwind CSS**: للتنسيق السريع والعصري.
+- **Shadcn UI**: لمكونات واجهة المستخدم الجاهزة والاحترافية.
+- **Lucide React**: للأيقونات التقنية.
+- **Vite**: كأداة بناء (Build Tool) فائقة السرعة.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 🚀 التشغيل المحلي | Local Setup
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+لتبدأ العمل على المشروع محلياً، اتبع الخطوات التالية:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+1. **استنساخ المستودع**:
+   ```bash
+   git clone https://github.com/fghdhttdsffgyhd-ops/seera-alex2026.git
+   ```
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+2. **الدخول للمجلد**:
+   ```bash
+   cd seera-alex2026
+   ```
+
+3. **تثبيت التبعيات**:
+   ```bash
+   npm install
+   ```
+
+4. **تشغيل المشروع**:
+   ```bash
+   npm run dev
+   ```
+
+---
+
+## 📞 تواصل معنا | Contact
+
+يمكنك التواصل مع فريق سيرا للحلول التقنية عبر:
+- **واتساب**: [201065063147+](https://wa.me/201065063147)
+- **الموقع**: الإسكندرية، مصر.
+
+---
+
+## 📄 الترخيص | License
+
+هذا المشروع مخصص للعرض الخاص بشركة سيرا للحلول التقنية.
+This project is private and dedicated to Seera Tech Solutions.
