@@ -1,20 +1,19 @@
-import Header from './sections/Header';
 import Hero from './sections/Hero';
 import Services from './sections/Services';
 import About from './sections/About';
+import WhyUs from './sections/WhyUs';
 import Contact from './sections/Contact';
 import Footer from './sections/Footer';
+import './App.css';
 
 function App() {
   return (
-    <div className="min-h-screen bg-background font-cairo overflow-x-hidden">
-      <Header />
-      <main>
-        <Hero />
-        <Services />
-        <About />
-        <Contact />
-      </main>
+    <div className="min-h-screen bg-background text-foreground">
+      <Hero />
+      <Services />
+      <About />
+      <WhyUs />
+      <Contact />
       <Footer />
     </div>
   );

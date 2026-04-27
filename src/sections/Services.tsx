@@ -1,117 +1,100 @@
-import { useEffect, useRef, useState } from 'react';
-import { 
-  Monitor, 
-  RefreshCw, 
-  CreditCard, 
-  Satellite, 
-  Video,
-  Wifi,
-  Shield,
-  ChevronLeft,
-  Fingerprint
-} from 'lucide-react';
-import { Card, CardContent } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-
-interface Service {
-  icon: React.ElementType;
-  title: string;
-  description: string;
-  features: string[];
-  color: string;
-}
-
-const services: Service[] = [
-  {
-    icon: Monitor,
-    title: 'إصلاح الشاشات',
-    description: 'صيانة وإصلاح جميع أنواع الشاشات باحترافية عالية مع ضمان على الإصلاح',
-    features: ['شاشات LCD', 'شاشات LED', 'شاشات سمارت', 'شاشات كمبيوتر'],
-    color: 'from-blue-500 to-cyan-500',
-  },
-  {
-    icon: RefreshCw,
-    title: 'تحديث السوفت وير',
-    description: 'تحديث وترقية البرامج الثابتة لجميع الأجهزة الإلكترونية',
-    features: ['تحديث الرسيفر', 'تحديث الشاشات', 'تحديث الراوتر', 'إصلاح الأعطال البرمجية'],
-    color: 'from-green-500 to-emerald-500',
-  },
-  {
-    icon: CreditCard,
-    title: 'كروت إنترنت',
-    description: 'صيانة وتركيب وبرمجة كروت الإنترنت للكافيهات والشركات والقهاوي',
-    features: ['كروت كافيهات', 'كروت شركات', 'كروت قهاوي', 'برمجة وإدارة'],
-    color: 'from-orange-500 to-red-500',
-  },
-  {
-    icon: Satellite,
-    title: 'الرسيفر والأطباق',
-    description: 'تركيب وصيانة الرسيفرات والأطباق الصناعية بجميع أنواعها',
-    features: ['تركيب الأطباق', 'ضبط الإشارة', 'صيانة الرسيفر', 'تحديث القنوات'],
-    color: 'from-yellow-500 to-amber-500',
-  },
-  {
-    icon: Video,
-    title: 'كاميرات المراقبة',
-    description: 'تركيب وصيانة كاميرات المراقبة بأحدث التقنيات',
-    features: ['IP كاميرات', 'وايرلس كاميرات', 'CCTV كاميرات', 'كاميرات رقمية'],
-    color: 'from-red-500 to-rose-500',
-  },
-  {
-    icon: Fingerprint,
-    title: 'أجهزة البصمة',
-    description: 'تركيب وصيانة وبرمجة أجهزة البصمة للحضور والانصراف',
-    features: ['تركيب الأجهزة', 'برمجة النظام', 'صيانة دورية', 'دعم فني'],
-    color: 'from-purple-500 to-pink-500',
-  },
-];
+import { Smartphone, Cpu, Wifi, Monitor, ShoppingCart, Settings, Zap, BarChart3, Users, Headphones } from 'lucide-react';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
 const Services = () => {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const [visibleCards, setVisibleCards] = useState<Set<number>>(new Set());
+  const services = [
+    {
+      icon: Monitor,
+      title: 'إصلاح وصيانة الشاشات',
+      description: 'إصلاح وصيانة شاملة لجميع أنواع الشاشات والمونيتورات بأحدث التقنيات',
+      category: 'تقني'
+    },
+    {
+      icon: Smartphone,
+      title: 'تحديث السوفت وير',
+      description: 'تحديث وتطوير البرامج الثابتة لجميع الأجهزة الإلكترونية',
+      category: 'برمجة'
+    },
+    {
+      icon: Wifi,
+      title: 'برمجة وتركيب الميكروتيك',
+      description: 'حلول شبكات احترافية وبرمجة أنظمة الميكروتيك المتقدمة',
+      category: 'شبكات'
+    },
+    {
+      icon: Cpu,
+      title: 'كروت الصيانة والإصلاح',
+      description: 'توفير وبرمجة كروت الصيانة المتخصصة لجميع الأجهزة',
+      category: 'قطع غيار'
+    },
+    {
+      icon: ShoppingCart,
+      title: 'تركيب أنظمة الكاشير',
+      description: 'تركيب واستقرار كامل لأنظمة نقاط البيع (POS) الاحترافية',
+      category: 'كاشير'
+    },
+    {
+      icon: Settings,
+      title: 'برمجة أنظمة الكاشير',
+      description: 'برمجة مخصصة وتطوير أنظمة الكاشير حسب احتياجات عملك',
+      category: 'كاشير'
+    },
+    {
+      icon: BarChart3,
+      title: 'الأنظمة المحاسبية',
+      description: 'حلول محاسبية متكاملة وأنظمة إدارة المخزون والفواتير',
+      category: 'محاسبة'
+    },
+    {
+      icon: Headphones,
+      title: 'صيانة وتطوير الكاشير',
+      description: 'صيانة دورية وتطوير مستمر لأنظمة الكاشير والدعم الفني 24/7',
+      category: 'كاشير'
+    },
+    {
+      icon: Zap,
+      title: 'كاميرات المراقبة',
+      description: 'تركيب وبرمجة أنظمة المراقبة الأمنية الحديثة',
+      category: 'أمان'
+    },
+    {
+      icon: Users,
+      title: 'التدريب والدعم الفني',
+      description: 'تدريب شامل على استخدام الأنظمة والدعم الفني المستمر',
+      category: 'دعم'
+    },
+  ];
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const index = parseInt(entry.target.getAttribute('data-index') || '0');
-            setVisibleCards((prev) => new Set([...prev, index]));
-          }
-        });
-      },
-      { threshold: 0.2, rootMargin: '0px 0px -50px 0px' }
-    );
-
-    const cards = sectionRef.current?.querySelectorAll('.service-card');
-    cards?.forEach((card) => observer.observe(card));
-
-    return () => observer.disconnect();
-  }, []);
+  const categories = ['الكل', 'كاشير', 'محاسبة', 'تقني', 'برمجة', 'شبكات', 'أمان', 'دعم'];
 
   return (
-    <section
-      id="services"
-      ref={sectionRef}
-      className="relative py-24 bg-gradient-tech overflow-hidden"
-    >
-      {/* Background Elements */}
-      <div className="absolute inset-0 bg-grid opacity-30" />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-orange-500/5 rounded-full blur-3xl" />
-
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Section Header */}
+    <section id="services" className="py-20 px-4 sm:px-6 lg:px-8 bg-background">
+      <div className="container mx-auto max-w-6xl">
+        {/* Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-500/10 border border-orange-500/30 mb-6">
-            <Shield className="w-4 h-4 text-orange-400" />
-            <span className="text-orange-400 text-sm font-medium">خدماتنا المتميزة</span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">
-            نقدم <span className="text-gradient">حلول تقنية</span> شاملة
+          <h2 className="text-4xl sm:text-5xl font-bold mb-6">
+            <span className="text-white">خدماتنا </span>
+            <span className="text-gradient">المتميزة</span>
           </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            فريق متخصص في تقديم جميع الخدمات التقنية بأعلى معايير الجودة والاحترافية
+          <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+            نقدم مجموعة شاملة من الخدمات التقنية واحترافية، من الصيانة والإصلاح إلى أنظمة الكاشير والحلول المحاسبية المتكاملة
           </p>
+        </div>
+
+        {/* Category Filter */}
+        <div className="flex flex-wrap justify-center gap-3 mb-12">
+          {categories.map((category) => (
+            <button
+              key={category}
+              className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${
+                category === 'الكل'
+                  ? 'bg-orange-500 text-white'
+                  : 'bg-white/5 text-gray-300 hover:bg-white/10 border border-white/10'
+              }`}
+            >
+              {category}
+            </button>
+          ))}
         </div>
 
         {/* Services Grid */}
@@ -119,77 +102,37 @@ const Services = () => {
           {services.map((service, index) => (
             <Card
               key={index}
-              data-index={index}
-              className={`service-card group relative overflow-hidden bg-gradient-card border-white/5 hover:border-orange-500/30 transition-all duration-500 hover-lift ${
-                visibleCards.has(index) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-              }`}
-              style={{ transitionDelay: `${index * 100}ms` }}
+              className="bg-card/50 border-white/10 hover:border-orange-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-orange-500/20 group"
             >
-              {/* Gradient Border Effect */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
-              
-              <CardContent className="p-6 relative z-10">
-                {/* Icon */}
-                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${service.color} flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                  <service.icon className="w-8 h-8 text-white" />
+              <CardHeader>
+                <div className="w-12 h-12 rounded-lg bg-orange-500/20 flex items-center justify-center mb-4 group-hover:bg-orange-500/30 transition-all">
+                  <service.icon className="w-6 h-6 text-orange-400" />
                 </div>
-
-                {/* Title */}
-                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-orange-400 transition-colors duration-300">
-                  {service.title}
-                </h3>
-
-                {/* Description */}
-                <p className="text-gray-400 text-sm mb-6 leading-relaxed">
-                  {service.description}
-                </p>
-
-                {/* Features */}
-                <ul className="space-y-2 mb-6">
-                  {service.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-center gap-2 text-sm text-gray-300">
-                      <div className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${service.color}`} />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-
-                {/* CTA Button */}
-                <a
-                  href="https://wa.me/201065063147"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Button
-                    variant="ghost"
-                    className="w-full justify-between text-orange-400 hover:text-orange-300 hover:bg-orange-500/10 group/btn"
-                  >
-                    <span>اطلب الخدمة</span>
-                    <ChevronLeft className="w-4 h-4 group-hover/btn:-translate-x-1 transition-transform" />
-                  </Button>
-                </a>
+                <CardTitle className="text-white text-xl">{service.title}</CardTitle>
+                <CardDescription className="text-gray-400 text-sm">
+                  <span className="inline-block px-2 py-1 rounded bg-orange-500/20 text-orange-300 text-xs font-medium">
+                    {service.category}
+                  </span>
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-400 leading-relaxed">{service.description}</p>
               </CardContent>
             </Card>
           ))}
         </div>
 
-        {/* Bottom CTA */}
-        <div className="mt-16 text-center">
-          <div className="inline-flex flex-col sm:flex-row items-center gap-4 p-6 rounded-2xl bg-gradient-to-r from-orange-500/10 to-blue-500/10 border border-orange-500/20">
-            <div className="flex items-center gap-3">
-              <Wifi className="w-6 h-6 text-orange-400" />
-              <span className="text-white font-medium">هل تحتاج إلى خدمة غير مذكورة؟</span>
-            </div>
-            <a
-              href="https://wa.me/201065063147"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Button className="bg-orange-500 hover:bg-orange-600 text-white rounded-full px-6">
-                تواصل معنا
-              </Button>
-            </a>
-          </div>
+        {/* CTA Section */}
+        <div className="mt-16 p-8 rounded-2xl bg-gradient-card border border-white/10 text-center">
+          <h3 className="text-2xl font-bold text-white mb-4">هل تحتاج لخدمة مخصصة؟</h3>
+          <p className="text-gray-400 mb-6">
+            نحن هنا لتقديم حلول مخصصة تناسب احتياجات عملك بالضبط
+          </p>
+          <a href="https://wa.me/201065063147" target="_blank" rel="noopener noreferrer">
+            <button className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-orange-500/50">
+              تواصل معنا الآن
+            </button>
+          </a>
         </div>
       </div>
     </section>
