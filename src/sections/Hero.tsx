@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { ArrowDown, Cpu, Shield, Zap, Wifi } from 'lucide-react';
+import { ArrowDown, Lock, Zap, Shield, Code } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Hero = () => {
@@ -55,7 +55,7 @@ const Hero = () => {
 
         ctx.beginPath();
         ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(249, 115, 22, ${particle.opacity})`;
+        ctx.fillStyle = `rgba(59, 130, 246, ${particle.opacity})`;
         ctx.fill();
 
         // Draw connections
@@ -68,7 +68,7 @@ const Hero = () => {
             ctx.beginPath();
             ctx.moveTo(particle.x, particle.y);
             ctx.lineTo(other.x, other.y);
-            ctx.strokeStyle = `rgba(249, 115, 22, ${0.15 * (1 - distance / 150)})`;
+            ctx.strokeStyle = `rgba(59, 130, 246, ${0.15 * (1 - distance / 150)})`;
             ctx.lineWidth = 0.5;
             ctx.stroke();
           }
@@ -94,16 +94,16 @@ const Hero = () => {
   };
 
   const features = [
-    { icon: Cpu, text: 'حلول تقنية متكاملة' },
-    { icon: Shield, text: 'جودة وضمان' },
-    { icon: Zap, text: 'سرعة في التنفيذ' },
-    { icon: Wifi, text: 'دعم فني مستمر' },
+    { icon: Lock, text: 'أمان عالي وموثوقية' },
+    { icon: Zap, text: 'أداء سريع وفعال' },
+    { icon: Shield, text: 'حماية شاملة للبيانات' },
+    { icon: Code, text: 'حلول مخصصة ومرنة' },
   ];
 
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-tech"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950"
     >
       {/* Canvas Background */}
       <canvas
@@ -125,22 +125,23 @@ const Hero = () => {
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 pt-20">
         <div className="text-center max-w-4xl mx-auto">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-500/10 border border-orange-500/30 mb-8 animate-fade-in">
-            <span className="w-2 h-2 rounded-full bg-orange-500 animate-pulse" />
-            <span className="text-orange-400 text-sm font-medium">نقدم حلول تقنية احترافية</span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/20 border border-blue-500/30 mb-8 animate-fade-in">
+            <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
+            <span className="text-blue-300 text-sm font-medium">حلول تقنية متطورة وموثوقة</span>
           </div>
 
           {/* Main Title */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 animate-slide-down">
+          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-6 animate-slide-down">
             <span className="text-white">سيرا</span>
             <br />
-            <span className="text-gradient">للحلول التقنية</span>
+            <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-green-400 bg-clip-text text-transparent">
+              للبرمجيات
+            </span>
           </h1>
 
           {/* Subtitle */}
-          <p className="text-lg sm:text-xl text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed animate-fade-in" style={{ animationDelay: '0.3s' }}>
-            نقدم جميع الخدمات التقنية باحترافية عالية، من إصلاح الشاشات وتحديث السوفت وير
-            إلى تركيب كاميرات المراقبة وبرمجة الميكروتيك
+          <p className="text-lg sm:text-xl text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed animate-fade-in" style={{ animationDelay: '0.3s' }}>
+            متخصصون في تقديم حلول تقنية شاملة: أنظمة المراقبة الأمنية، الشبكات والسيرفرات، أنظمة إدارة الموارد البشرية، نقاط البيع، والحلول البرمجية المخصصة
           </p>
 
           {/* CTA Buttons */}
@@ -152,9 +153,9 @@ const Hero = () => {
             >
               <Button
                 size="lg"
-                className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-8 py-6 rounded-full shadow-glow hover:shadow-glow-lg transition-all duration-300 text-lg font-semibold gap-2"
+                className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white px-8 py-6 rounded-full shadow-lg hover:shadow-green-500/50 transition-all duration-300 text-lg font-semibold gap-2"
               >
-                <span>تواصل معنا</span>
+                <span>تواصل معنا عبر الواتس</span>
                 <ArrowDown className="w-5 h-5 rotate-180" />
               </Button>
             </a>
@@ -162,7 +163,7 @@ const Hero = () => {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-orange-500/50 text-orange-400 hover:bg-orange-500/10 px-8 py-6 rounded-full transition-all duration-300 text-lg font-semibold"
+                className="border-blue-500/50 text-blue-300 hover:bg-blue-500/10 px-8 py-6 rounded-full transition-all duration-300 text-lg font-semibold"
               >
                 استكشف خدماتنا
               </Button>
@@ -176,8 +177,8 @@ const Hero = () => {
                 key={index}
                 className="flex items-center gap-3 p-4 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm hover:bg-white/10 transition-all duration-300"
               >
-                <div className="w-10 h-10 rounded-lg bg-orange-500/20 flex items-center justify-center flex-shrink-0">
-                  <feature.icon className="w-5 h-5 text-orange-400" />
+                <div className="w-10 h-10 rounded-lg bg-blue-500/20 flex items-center justify-center flex-shrink-0">
+                  <feature.icon className="w-5 h-5 text-blue-400" />
                 </div>
                 <span className="text-gray-300 text-sm font-medium">{feature.text}</span>
               </div>
@@ -187,7 +188,7 @@ const Hero = () => {
       </div>
 
       {/* Bottom Gradient */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-slate-950 to-transparent" />
     </section>
   );
 };

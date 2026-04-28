@@ -1,137 +1,245 @@
-import { Smartphone, Cpu, Wifi, Monitor, ShoppingCart, Settings, Zap, BarChart3, Users, Headphones } from 'lucide-react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Camera, Wifi, Fingerprint, ShoppingCart, Code, ChevronRight } from 'lucide-react';
+import { useState } from 'react';
 
 const Services = () => {
+  const [expandedService, setExpandedService] = useState<number | null>(null);
+
   const services = [
     {
-      icon: Monitor,
-      title: 'إصلاح وصيانة الشاشات',
-      description: 'إصلاح وصيانة شاملة لجميع أنواع الشاشات والمونيتورات بأحدث التقنيات',
-      category: 'تقني'
+      id: 1,
+      icon: Camera,
+      title: 'أنظمة المراقبة',
+      subtitle: 'CCTV & DVR',
+      description: 'حلول مراقبة أمنية متطورة وموثوقة',
+      features: [
+        'تركيب احترافي للكاميرات عالية الدقة',
+        'صيانة دورية وإصلاح الأعطال',
+        'إعداد وتكوين أجهزة التسجيل (DVR/NVR)',
+        'ربط الأنظمة للمراقبة عن بعد',
+        'دعم فني متواصل 24/7'
+      ],
+      color: 'from-red-600 to-red-700',
+      lightColor: 'bg-red-500/10',
+      borderColor: 'border-red-500/30',
+      hoverBorder: 'hover:border-red-500/60'
     },
     {
-      icon: Smartphone,
-      title: 'تحديث السوفت وير',
-      description: 'تحديث وتطوير البرامج الثابتة لجميع الأجهزة الإلكترونية',
-      category: 'برمجة'
-    },
-    {
+      id: 2,
       icon: Wifi,
-      title: 'برمجة وتركيب الميكروتيك',
-      description: 'حلول شبكات احترافية وبرمجة أنظمة الميكروتيك المتقدمة',
-      category: 'شبكات'
+      title: 'الشبكات والسيرفرات',
+      subtitle: 'Networking & MikroTik',
+      description: 'بنية تحتية شبكية قوية وآمنة',
+      features: [
+        'تأسيس البنية التحتية للشبكات',
+        'برمجة وإدارة راوترات مايكروتيك',
+        'إعداد أنظمة الهوت سبوت (Hotspot Billing)',
+        'ربط الفروع وتأمين البيانات',
+        'مراقبة الأداء والصيانة الدورية'
+      ],
+      color: 'from-blue-600 to-blue-700',
+      lightColor: 'bg-blue-500/10',
+      borderColor: 'border-blue-500/30',
+      hoverBorder: 'hover:border-blue-500/60'
     },
     {
-      icon: Cpu,
-      title: 'كروت الصيانة والإصلاح',
-      description: 'توفير وبرمجة كروت الصيانة المتخصصة لجميع الأجهزة',
-      category: 'قطع غيار'
+      id: 3,
+      icon: Fingerprint,
+      title: 'أنظمة الحضور والانصراف',
+      subtitle: 'ZKTeco & Access Control',
+      description: 'إدارة الموارد البشرية بكفاءة',
+      features: [
+        'تركيب أجهزة البصمة والتعرف البيومتري',
+        'ربط الأجهزة بالأنظمة الإدارية',
+        'التحكم في الأبواب والصلاحيات',
+        'تقارير دقيقة وتفصيلية للموظفين',
+        'تكامل مع أنظمة الموارد البشرية'
+      ],
+      color: 'from-purple-600 to-purple-700',
+      lightColor: 'bg-purple-500/10',
+      borderColor: 'border-purple-500/30',
+      hoverBorder: 'hover:border-purple-500/60'
     },
     {
+      id: 4,
       icon: ShoppingCart,
-      title: 'تركيب أنظمة الكاشير',
-      description: 'تركيب واستقرار كامل لأنظمة نقاط البيع (POS) الاحترافية',
-      category: 'كاشير'
+      title: 'أنظمة الكاشير ونقاط البيع',
+      subtitle: 'POS Systems',
+      description: 'حلول متكاملة لإدارة المبيعات',
+      features: [
+        'توريد وتركيب أجهزة الكاشير (POS)',
+        'ربط طابعات الفواتير وقوارئ الباركود',
+        'تنصيب برامج إدارة المبيعات والمخازن',
+        'دعم فني وتدريب شامل للموظفين',
+        'تقارير مبيعات وتحليلات متقدمة'
+      ],
+      color: 'from-green-600 to-green-700',
+      lightColor: 'bg-green-500/10',
+      borderColor: 'border-green-500/30',
+      hoverBorder: 'hover:border-green-500/60'
     },
     {
-      icon: Settings,
-      title: 'برمجة أنظمة الكاشير',
-      description: 'برمجة مخصصة وتطوير أنظمة الكاشير حسب احتياجات عملك',
-      category: 'كاشير'
-    },
-    {
-      icon: BarChart3,
-      title: 'الأنظمة المحاسبية',
-      description: 'حلول محاسبية متكاملة وأنظمة إدارة المخزون والفواتير',
-      category: 'محاسبة'
-    },
-    {
-      icon: Headphones,
-      title: 'صيانة وتطوير الكاشير',
-      description: 'صيانة دورية وتطوير مستمر لأنظمة الكاشير والدعم الفني 24/7',
-      category: 'كاشير'
-    },
-    {
-      icon: Zap,
-      title: 'كاميرات المراقبة',
-      description: 'تركيب وبرمجة أنظمة المراقبة الأمنية الحديثة',
-      category: 'أمان'
-    },
-    {
-      icon: Users,
-      title: 'التدريب والدعم الفني',
-      description: 'تدريب شامل على استخدام الأنظمة والدعم الفني المستمر',
-      category: 'دعم'
-    },
+      id: 5,
+      icon: Code,
+      title: 'الحلول البرمجية',
+      subtitle: 'Software Solutions',
+      description: 'تطبيقات مخصصة وحلول ذكية',
+      features: [
+        'لوحات تحكم سحابية لإدارة البنية التحتية',
+        'لوحات تحكم مخصصة لإدارة المشتركين والأجهزة',
+        'استضافة وتطوير تطبيقات الويب',
+        'تطبيقات الهاتف المحمول (iOS/Android)',
+        'دعم فني وصيانة مستمرة'
+      ],
+      color: 'from-indigo-600 to-indigo-700',
+      lightColor: 'bg-indigo-500/10',
+      borderColor: 'border-indigo-500/30',
+      hoverBorder: 'hover:border-indigo-500/60'
+    }
   ];
 
-  const categories = ['الكل', 'كاشير', 'محاسبة', 'تقني', 'برمجة', 'شبكات', 'أمان', 'دعم'];
-
   return (
-    <section id="services" className="py-20 px-4 sm:px-6 lg:px-8 bg-background">
-      <div className="container mx-auto max-w-6xl">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl font-bold mb-6">
-            <span className="text-white">خدماتنا </span>
-            <span className="text-gradient">المتميزة</span>
+    <section id="services" className="py-24 px-4 sm:px-6 lg:px-8 bg-slate-950">
+      <div className="container mx-auto max-w-7xl">
+        {/* Section Header */}
+        <div className="text-center mb-20">
+          <div className="inline-block mb-6">
+            <span className="px-4 py-2 rounded-full bg-blue-500/20 text-blue-300 text-sm font-semibold border border-blue-500/30">
+              خدماتنا المتميزة
+            </span>
+          </div>
+          <h2 className="text-5xl md:text-6xl font-bold mb-6 text-white">
+            حلول تقنية شاملة
+            <br />
+            <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-green-400 bg-clip-text text-transparent">
+              لعملك
+            </span>
           </h2>
-          <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-            نقدم مجموعة شاملة من الخدمات التقنية واحترافية، من الصيانة والإصلاح إلى أنظمة الكاشير والحلول المحاسبية المتكاملة
+          <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
+            نقدم مجموعة متكاملة من الخدمات التقنية المتطورة، من الأنظمة الأمنية والشبكات إلى حلول البرمجيات المخصصة
           </p>
-        </div>
-
-        {/* Category Filter */}
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
-          {categories.map((category) => (
-            <button
-              key={category}
-              className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${
-                category === 'الكل'
-                  ? 'bg-orange-500 text-white'
-                  : 'bg-white/5 text-gray-300 hover:bg-white/10 border border-white/10'
-              }`}
-            >
-              {category}
-            </button>
-          ))}
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((service, index) => (
-            <Card
-              key={index}
-              className="bg-card/50 border-white/10 hover:border-orange-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-orange-500/20 group"
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+          {services.map((service) => (
+            <div
+              key={service.id}
+              className={`group relative rounded-2xl overflow-hidden transition-all duration-500 cursor-pointer transform hover:scale-105 ${
+                expandedService === service.id ? 'md:col-span-2 lg:col-span-3' : ''
+              }`}
+              onClick={() => setExpandedService(expandedService === service.id ? null : service.id)}
             >
-              <CardHeader>
-                <div className="w-12 h-12 rounded-lg bg-orange-500/20 flex items-center justify-center mb-4 group-hover:bg-orange-500/30 transition-all">
-                  <service.icon className="w-6 h-6 text-orange-400" />
+              {/* Card Background Gradient */}
+              <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
+              
+              {/* Card Border */}
+              <div className={`absolute inset-0 rounded-2xl border-2 ${service.borderColor} ${service.hoverBorder} transition-all duration-500`} />
+
+              {/* Content Container */}
+              <div className="relative p-8 h-full flex flex-col bg-gradient-to-br from-slate-900/80 to-slate-800/80 backdrop-blur-sm">
+                
+                {/* Icon Container */}
+                <div className={`w-16 h-16 rounded-xl ${service.lightColor} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500`}>
+                  <service.icon className={`w-8 h-8 bg-gradient-to-br ${service.color} bg-clip-text text-transparent`} />
                 </div>
-                <CardTitle className="text-white text-xl">{service.title}</CardTitle>
-                <CardDescription className="text-gray-400 text-sm">
-                  <span className="inline-block px-2 py-1 rounded bg-orange-500/20 text-orange-300 text-xs font-medium">
-                    {service.category}
-                  </span>
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-400 leading-relaxed">{service.description}</p>
-              </CardContent>
-            </Card>
+
+                {/* Title Section */}
+                <div className="mb-4">
+                  <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-cyan-400 group-hover:bg-clip-text transition-all duration-500">
+                    {service.title}
+                  </h3>
+                  <p className={`text-sm font-semibold bg-gradient-to-r ${service.color} bg-clip-text text-transparent`}>
+                    {service.subtitle}
+                  </p>
+                </div>
+
+                {/* Description */}
+                <p className="text-gray-300 text-sm mb-6 leading-relaxed flex-grow">
+                  {service.description}
+                </p>
+
+                {/* Features List - Always Visible on Mobile, Expandable on Desktop */}
+                <div className={`overflow-hidden transition-all duration-500 ${
+                  expandedService === service.id 
+                    ? 'max-h-96 opacity-100 mb-6' 
+                    : 'max-h-0 opacity-0 md:max-h-0'
+                }`}>
+                  <ul className="space-y-3 mb-6">
+                    {service.features.map((feature, index) => (
+                      <li key={index} className="flex items-start gap-3 text-gray-300 text-sm">
+                        <span className={`w-2 h-2 rounded-full bg-gradient-to-r ${service.color} mt-2 flex-shrink-0`} />
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* CTA Button */}
+                <a
+                  href="https://wa.me/201065063147"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-semibold text-white transition-all duration-500 group/btn bg-gradient-to-r ${service.color} hover:shadow-lg hover:shadow-current/50 w-full`}
+                >
+                  <span>اطلب معاينة الآن عبر واتساب</span>
+                  <ChevronRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
+                </a>
+
+                {/* Expand/Collapse Indicator */}
+                <div className="mt-4 text-center">
+                  <button className="text-xs text-gray-400 hover:text-gray-300 transition-colors">
+                    {expandedService === service.id ? 'اضغط للإغلاق' : 'اضغط لعرض المزيد'}
+                  </button>
+                </div>
+              </div>
+
+              {/* Hover Glow Effect */}
+              <div className={`absolute -inset-0.5 bg-gradient-to-r ${service.color} opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-500 -z-10`} />
+            </div>
           ))}
         </div>
 
+        {/* Additional Info Section */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-20 pt-20 border-t border-slate-700">
+          <div className="text-center">
+            <div className="w-14 h-14 rounded-xl bg-blue-500/20 flex items-center justify-center mx-auto mb-4 border border-blue-500/30">
+              <span className="text-2xl">🎯</span>
+            </div>
+            <h4 className="text-xl font-bold text-white mb-2">حلول مخصصة</h4>
+            <p className="text-gray-400">نقدم حلولاً مخصصة تناسب احتياجات عملك بالضبط</p>
+          </div>
+          
+          <div className="text-center">
+            <div className="w-14 h-14 rounded-xl bg-green-500/20 flex items-center justify-center mx-auto mb-4 border border-green-500/30">
+              <span className="text-2xl">⚡</span>
+            </div>
+            <h4 className="text-xl font-bold text-white mb-2">تنفيذ سريع</h4>
+            <p className="text-gray-400">تنفيذ احترافي وسريع مع ضمان الجودة العالية</p>
+          </div>
+          
+          <div className="text-center">
+            <div className="w-14 h-14 rounded-xl bg-purple-500/20 flex items-center justify-center mx-auto mb-4 border border-purple-500/30">
+              <span className="text-2xl">🛡️</span>
+            </div>
+            <h4 className="text-xl font-bold text-white mb-2">دعم مستمر</h4>
+            <p className="text-gray-400">دعم فني متواصل وصيانة دورية لضمان الأداء الأمثل</p>
+          </div>
+        </div>
+
         {/* CTA Section */}
-        <div className="mt-16 p-8 rounded-2xl bg-gradient-card border border-white/10 text-center">
-          <h3 className="text-2xl font-bold text-white mb-4">هل تحتاج لخدمة مخصصة؟</h3>
-          <p className="text-gray-400 mb-6">
-            نحن هنا لتقديم حلول مخصصة تناسب احتياجات عملك بالضبط
+        <div className="mt-20 p-12 rounded-2xl bg-gradient-to-r from-blue-600/20 via-cyan-600/20 to-green-600/20 border border-blue-500/30 text-center">
+          <h3 className="text-3xl font-bold text-white mb-4">هل تحتاج لحل تقني مخصص؟</h3>
+          <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
+            فريقنا المتخصص جاهز لتقديم الاستشارة المجانية والحل الأمثل لاحتياجات عملك
           </p>
-          <a href="https://wa.me/201065063147" target="_blank" rel="noopener noreferrer">
-            <button className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-orange-500/50">
-              تواصل معنا الآن
-            </button>
+          <a
+            href="https://wa.me/201065063147"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-lg font-bold text-white bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 transition-all duration-300 hover:shadow-lg hover:shadow-green-500/50 text-lg"
+          >
+            <span>تواصل معنا الآن</span>
+            <ChevronRight className="w-6 h-6" />
           </a>
         </div>
       </div>
