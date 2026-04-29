@@ -11,6 +11,7 @@ const Services = () => {
       title: 'أنظمة المراقبة',
       subtitle: 'CCTV & DVR',
       description: 'حلول مراقبة أمنية متطورة وموثوقة',
+      image: './images/cctv-technician.jpg',
       features: [
         'تركيب احترافي للكاميرات عالية الدقة',
         'صيانة دورية وإصلاح الأعطال',
@@ -29,6 +30,7 @@ const Services = () => {
       title: 'الشبكات والسيرفرات',
       subtitle: 'Networking & MikroTik',
       description: 'بنية تحتية شبكية قوية وآمنة',
+      image: './images/server-nvr-maintenance.png',
       features: [
         'تأسيس البنية التحتية للشبكات',
         'برمجة وإدارة راوترات مايكروتيك',
@@ -47,6 +49,7 @@ const Services = () => {
       title: 'أنظمة الحضور والانصراف',
       subtitle: 'ZKTeco & Access Control',
       description: 'إدارة الموارد البشرية بكفاءة',
+      image: './images/biometric-technician.jpg',
       features: [
         'تركيب أجهزة البصمة والتعرف البيومتري',
         'ربط الأجهزة بالأنظمة الإدارية',
@@ -65,6 +68,7 @@ const Services = () => {
       title: 'أنظمة الكاشير ونقاط البيع',
       subtitle: 'POS Systems',
       description: 'حلول متكاملة لإدارة المبيعات',
+      image: './images/pos-technician.png',
       features: [
         'توريد وتركيب أجهزة الكاشير (POS)',
         'ربط طابعات الفواتير وقوارئ الباركود',
@@ -83,6 +87,7 @@ const Services = () => {
       title: 'الحلول البرمجية',
       subtitle: 'Software Solutions',
       description: 'تطبيقات مخصصة وحلول ذكية',
+      image: './images/screen-repair.png',
       features: [
         'لوحات تحكم سحابية لإدارة البنية التحتية',
         'لوحات تحكم مخصصة لإدارة المشتركين والأجهزة',
@@ -104,18 +109,18 @@ const Services = () => {
         <div className="text-center mb-20">
           <div className="inline-block mb-6">
             <span className="px-4 py-2 rounded-full bg-blue-500/20 text-blue-300 text-sm font-semibold border border-blue-500/30">
-              خدماتنا المتميزة
+              خدماتنا الميدانية
             </span>
           </div>
           <h2 className="text-5xl md:text-6xl font-bold mb-6 text-white">
-            حلول تقنية شاملة
+            احترافية في التنفيذ
             <br />
             <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-green-400 bg-clip-text text-transparent">
-              لعملك
+              على أرض الواقع
             </span>
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
-            نقدم مجموعة متكاملة من الخدمات التقنية المتطورة، من الأنظمة الأمنية والشبكات إلى حلول البرمجيات المخصصة
+            فريقنا من المهندسين والفنيين المتخصصين يضمن لك جودة التركيب والصيانة بأحدث الأدوات والتقنيات
           </p>
         </div>
 
@@ -124,23 +129,30 @@ const Services = () => {
           {services.map((service) => (
             <div
               key={service.id}
-              className={`group relative rounded-2xl overflow-hidden transition-all duration-500 cursor-pointer transform hover:scale-105 ${
+              className={`group relative rounded-2xl overflow-hidden transition-all duration-500 cursor-pointer transform hover:scale-[1.02] ${
                 expandedService === service.id ? 'md:col-span-2 lg:col-span-3' : ''
               }`}
               onClick={() => setExpandedService(expandedService === service.id ? null : service.id)}
             >
-              {/* Card Background Gradient */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
-              
+              {/* Image Background */}
+              <div className="absolute inset-0 z-0">
+                <img 
+                  src={service.image} 
+                  alt={service.title}
+                  className="w-full h-full object-cover opacity-20 group-hover:opacity-40 transition-opacity duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent" />
+              </div>
+
               {/* Card Border */}
-              <div className={`absolute inset-0 rounded-2xl border-2 ${service.borderColor} ${service.hoverBorder} transition-all duration-500`} />
+              <div className={`absolute inset-0 rounded-2xl border-2 ${service.borderColor} ${service.hoverBorder} transition-all duration-500 z-10`} />
 
               {/* Content Container */}
-              <div className="relative p-8 h-full flex flex-col bg-gradient-to-br from-slate-900/80 to-slate-800/80 backdrop-blur-sm">
+              <div className="relative p-8 h-full flex flex-col backdrop-blur-[2px] z-20">
                 
                 {/* Icon Container */}
-                <div className={`w-16 h-16 rounded-xl ${service.lightColor} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500`}>
-                  <service.icon className={`w-8 h-8 bg-gradient-to-br ${service.color} bg-clip-text text-transparent`} />
+                <div className={`w-16 h-16 rounded-xl ${service.lightColor} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 border border-white/5`}>
+                  <service.icon className={`w-8 h-8 text-white`} />
                 </div>
 
                 {/* Title Section */}
@@ -158,7 +170,7 @@ const Services = () => {
                   {service.description}
                 </p>
 
-                {/* Features List - Always Visible on Mobile, Expandable on Desktop */}
+                {/* Features List */}
                 <div className={`overflow-hidden transition-all duration-500 ${
                   expandedService === service.id 
                     ? 'max-h-96 opacity-100 mb-6' 
@@ -180,6 +192,7 @@ const Services = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-semibold text-white transition-all duration-500 group/btn bg-gradient-to-r ${service.color} hover:shadow-lg hover:shadow-current/50 w-full`}
+                  onClick={(e) => e.stopPropagation()}
                 >
                   <span>اطلب معاينة الآن عبر واتساب</span>
                   <ChevronRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
@@ -224,23 +237,6 @@ const Services = () => {
             <h4 className="text-xl font-bold text-white mb-2">دعم مستمر</h4>
             <p className="text-gray-400">دعم فني متواصل وصيانة دورية لضمان الأداء الأمثل</p>
           </div>
-        </div>
-
-        {/* CTA Section */}
-        <div className="mt-20 p-12 rounded-2xl bg-gradient-to-r from-blue-600/20 via-cyan-600/20 to-green-600/20 border border-blue-500/30 text-center">
-          <h3 className="text-3xl font-bold text-white mb-4">هل تحتاج لحل تقني مخصص؟</h3>
-          <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-            فريقنا المتخصص جاهز لتقديم الاستشارة المجانية والحل الأمثل لاحتياجات عملك
-          </p>
-          <a
-            href="https://wa.me/201065063147"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-lg font-bold text-white bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 transition-all duration-300 hover:shadow-lg hover:shadow-green-500/50 text-lg"
-          >
-            <span>تواصل معنا الآن</span>
-            <ChevronRight className="w-6 h-6" />
-          </a>
         </div>
       </div>
     </section>
