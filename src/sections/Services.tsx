@@ -11,7 +11,7 @@ const Services = () => {
       title: 'أنظمة المراقبة',
       subtitle: 'CCTV & DVR',
       description: 'حلول مراقبة أمنية متطورة وموثوقة',
-      image: './images/cctv-technician.jpg',
+      image: '/seera-alex2026/assets/cctv-technician.jpg',
       features: [
         'تركيب احترافي للكاميرات عالية الدقة',
         'صيانة دورية وإصلاح الأعطال',
@@ -30,7 +30,7 @@ const Services = () => {
       title: 'الشبكات والسيرفرات',
       subtitle: 'Networking & MikroTik',
       description: 'بنية تحتية شبكية قوية وآمنة',
-      image: './images/server-nvr-maintenance.png',
+      image: '/seera-alex2026/assets/server-nvr-maintenance.png',
       features: [
         'تأسيس البنية التحتية للشبكات',
         'برمجة وإدارة راوترات مايكروتيك',
@@ -49,7 +49,7 @@ const Services = () => {
       title: 'أنظمة الحضور والانصراف',
       subtitle: 'ZKTeco & Access Control',
       description: 'إدارة الموارد البشرية بكفاءة',
-      image: './images/biometric-technician.jpg',
+      image: '/seera-alex2026/assets/biometric-technician.jpg',
       features: [
         'تركيب أجهزة البصمة والتعرف البيومتري',
         'ربط الأجهزة بالأنظمة الإدارية',
@@ -68,7 +68,7 @@ const Services = () => {
       title: 'أنظمة الكاشير ونقاط البيع',
       subtitle: 'POS Systems',
       description: 'حلول متكاملة لإدارة المبيعات',
-      image: './images/pos-technician.png',
+      image: '/seera-alex2026/assets/pos-technician.png',
       features: [
         'توريد وتركيب أجهزة الكاشير (POS)',
         'ربط طابعات الفواتير وقوارئ الباركود',
@@ -87,7 +87,7 @@ const Services = () => {
       title: 'الحلول البرمجية',
       subtitle: 'Software Solutions',
       description: 'تطبيقات مخصصة وحلول ذكية',
-      image: './images/screen-repair.png',
+      image: '/seera-alex2026/assets/screen-repair.png',
       features: [
         'لوحات تحكم سحابية لإدارة البنية التحتية',
         'لوحات تحكم مخصصة لإدارة المشتركين والأجهزة',
