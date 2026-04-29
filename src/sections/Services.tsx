@@ -11,7 +11,7 @@ const Services = () => {
       title: 'أنظمة المراقبة',
       subtitle: 'CCTV & DVR',
       description: 'حلول مراقبة أمنية متطورة وموثوقة',
-      image: '/seera-alex2026/assets/cctv-technician.jpg',
+      image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop',
       features: [
         'تركيب احترافي للكاميرات عالية الدقة',
         'صيانة دورية وإصلاح الأعطال',
@@ -30,7 +30,7 @@ const Services = () => {
       title: 'الشبكات والسيرفرات',
       subtitle: 'Networking & MikroTik',
       description: 'بنية تحتية شبكية قوية وآمنة',
-      image: '/seera-alex2026/assets/server-nvr-maintenance.png',
+      image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop&q=80',
       features: [
         'تأسيس البنية التحتية للشبكات',
         'برمجة وإدارة راوترات مايكروتيك',
@@ -49,7 +49,7 @@ const Services = () => {
       title: 'أنظمة الحضور والانصراف',
       subtitle: 'ZKTeco & Access Control',
       description: 'إدارة الموارد البشرية بكفاءة',
-      image: '/seera-alex2026/assets/biometric-technician.jpg',
+      image: 'https://images.unsplash.com/photo-1526374965328-7f5ae4e8b08f?w=800&h=600&fit=crop',
       features: [
         'تركيب أجهزة البصمة والتعرف البيومتري',
         'ربط الأجهزة بالأنظمة الإدارية',
@@ -68,7 +68,7 @@ const Services = () => {
       title: 'أنظمة الكاشير ونقاط البيع',
       subtitle: 'POS Systems',
       description: 'حلول متكاملة لإدارة المبيعات',
-      image: '/seera-alex2026/assets/pos-technician.png',
+      image: 'https://images.unsplash.com/photo-1556740738-b6a63e27c4df?w=800&h=600&fit=crop',
       features: [
         'توريد وتركيب أجهزة الكاشير (POS)',
         'ربط طابعات الفواتير وقوارئ الباركود',
@@ -87,7 +87,7 @@ const Services = () => {
       title: 'الحلول البرمجية',
       subtitle: 'Software Solutions',
       description: 'تطبيقات مخصصة وحلول ذكية',
-      image: '/seera-alex2026/assets/screen-repair.png',
+      image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&h=600&fit=crop',
       features: [
         'لوحات تحكم سحابية لإدارة البنية التحتية',
         'لوحات تحكم مخصصة لإدارة المشتركين والأجهزة',
@@ -134,12 +134,16 @@ const Services = () => {
               }`}
               onClick={() => setExpandedService(expandedService === service.id ? null : service.id)}
             >
-              {/* Image Background */}
+              {/* Image Background with Lazy Loading */}
               <div className="absolute inset-0 z-0">
                 <img 
                   src={service.image} 
                   alt={service.title}
-                  className="w-full h-full object-cover opacity-20 group-hover:opacity-40 transition-opacity duration-500"
+                  loading="lazy"
+                  className="w-full h-full object-cover opacity-25 group-hover:opacity-45 transition-opacity duration-500"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).style.display = 'none';
+                  }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent" />
               </div>
@@ -237,6 +241,23 @@ const Services = () => {
             <h4 className="text-xl font-bold text-white mb-2">دعم مستمر</h4>
             <p className="text-gray-400">دعم فني متواصل وصيانة دورية لضمان الأداء الأمثل</p>
           </div>
+        </div>
+
+        {/* CTA Section */}
+        <div className="mt-20 p-12 rounded-2xl bg-gradient-to-r from-blue-600/20 via-cyan-600/20 to-green-600/20 border border-blue-500/30 text-center">
+          <h3 className="text-3xl font-bold text-white mb-4">هل تحتاج لحل تقني مخصص؟</h3>
+          <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
+            فريقنا المتخصص جاهز لتقديم الاستشارة المجانية والحل الأمثل لاحتياجات عملك
+          </p>
+          <a
+            href="https://wa.me/201065063147"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-lg font-bold text-white bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 transition-all duration-300 hover:shadow-lg hover:shadow-green-500/50 text-lg"
+          >
+            <span>تواصل معنا الآن</span>
+            <ChevronRight className="w-6 h-6" />
+          </a>
         </div>
       </div>
     </section>
