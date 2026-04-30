@@ -1,5 +1,21 @@
-steps:
-      # نسخة v4.1.1 - SHA مستقر جداً وموجود غالباً في كل البيئات
+name: Deploy React App to GitHub Pages
+
+on:
+  # هذا السطر يخبر الأكشن بالعمل تلقائياً عند أي رفع (push) لفرع main
+  push:
+    branches: ["main"]
+
+# الصلاحيات ضرورية جداً لنشر المواقع على GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      # نسخة v4.1.1 - SHA مستقر جداً
       - name: Checkout
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 
 
