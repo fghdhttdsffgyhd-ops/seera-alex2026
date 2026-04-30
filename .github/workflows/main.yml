@@ -1,11 +1,9 @@
 name: Deploy React App to GitHub Pages
 
 on:
-  # هذا السطر يخبر الأكشن بالعمل تلقائياً عند أي رفع (push) لفرع main
   push:
     branches: ["main"]
 
-# الصلاحيات ضرورية جداً لنشر المواقع على GitHub Pages
 permissions:
   contents: read
   pages: write
@@ -15,13 +13,11 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      # نسخة v4.1.1 - SHA مستقر جداً
       - name: Checkout
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 
+        uses: actions/checkout@v4
 
-      # نسخة v4.0.2
       - name: Setup Node
-        uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8
+        uses: actions/setup-node@v4
         with:
           node-version: '18'
           cache: 'npm'
@@ -29,13 +25,11 @@ jobs:
       - run: npm ci
       - run: npm run build
 
-      # نسخة v3.0.0
       - name: Upload Pages Artifact
-        uses: actions/upload-pages-artifact@a11059f0f9839446961a86895b93d406213799f9
+        uses: actions/upload-pages-artifact@v3
         with:
           path: './dist'
 
-      # نسخة v4.0.0
       - name: Deploy
-        uses: actions/deploy-pages@d6db90164ad5b118d2d652a80c7514659966df30
+        uses: actions/deploy-pages@v4
         id: deployment
