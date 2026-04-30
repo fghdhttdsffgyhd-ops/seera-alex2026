@@ -8,6 +8,13 @@ export default defineConfig({
   // استخدام مسار أساسي فارغ أو نسبي لضمان عمل الروابط والملفات بشكل صحيح في أي مسار استضافة (مثل GitHub Pages)
   base: './',
   plugins: [inspectAttr(), react()],
+  server: {
+    host: '0.0.0.0',
+    allowedHosts: true,
+    hmr: {
+      clientPort: 443,
+    }
+  },
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
